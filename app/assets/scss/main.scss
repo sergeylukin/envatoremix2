@@ -1,0 +1,481 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(0,0,0,.9);
+  margin: 2em;
+  font-family: sans-serif;
+}
+
+/* Normal state - FLY! */
+.profile-card::before {
+  animation: scrolling .5s linear infinite;
+}
+.profile-card header,
+.profile-card .profile-social-links,
+.profile-bio {
+  animation: fly .2s linear infinite;
+}
+.profile-card header::after {
+  animation: flame .1s linear infinite;
+}
+.profile-card header img,
+.profile-card .profile-social-links img {
+  animation: none;
+}
+
+/* Plot hovered - Levitate! */
+.profile-card:hover::before {
+  animation: none;
+}
+/* Levitate rocket */
+.profile-card:hover header,
+/* Levitate social icons windows */
+.profile-card:hover .profile-social-links,
+/* Levitate spaceship base part */
+.profile-card:hover .profile-bio {
+  animation: levitate1 3s linear infinite;
+}
+.profile-card:hover header::after {
+  display: none;
+}
+
+.profile-card:hover header img {
+  animation: levitate2 8s infinite linear;
+}
+/* Levitate first icon */
+.profile-card:hover .profile-social-links li:nth-child(1) svg {
+  animation: levitate1 9s infinite linear;
+}
+/* Levitate second icon */
+.profile-card:hover .profile-social-links li:nth-child(2) img {
+  animation: levitate2 10s infinite linear;
+}
+/* Levitate third icon */
+.profile-card:hover .profile-social-links li:nth-child(3) img {
+  animation: levitate1 11s infinite linear;
+}
+
+
+.profile-card {
+  overflow: hidden;
+  position: relative;
+  width: 480px;
+  margin: 0 auto;
+  padding: 50px 0 300px 0;
+  border: 1px solid rgba(255,255,255,.2);
+  background-color: black;
+}
+
+/* Universe stars */
+.profile-card::before {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+
+  background-image:
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 1px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
+    linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px);
+  background-size:
+    2px 250px,
+    2px 200px,
+    1px 140px,
+    1px 180px,
+    2px 220px,
+    2px 180px,
+    1px 130px,
+    2px 200px,
+    1px 120px,
+    1px 150px,
+    2px 200px,
+    1px 160px,
+    2px 120px,
+    1px 160px,
+    2px 130px,
+    2px 140px,
+    1px 180px,
+    2px 100px,
+    1px 200px,
+    2px 190px,
+    1px 180px,
+    2px 140px,
+    2px 130px,
+    1px 250px,
+    2px 170px,
+    2px 200px;
+  background-position:
+      1% 1%,
+      2% 2%,
+      4% 4%,
+      8% 8%,
+      10% 1%,
+      12% 8%,
+      24% 2%,
+      28% 10%,
+      32% 20%,
+      36% 4%,
+      40% 2%,
+      50% 11%,
+      54% 15%,
+      56% 22%,
+      60% 2%,
+      66% 8%,
+      68% 3%,
+      72% 18%,
+      76% 8%,
+      82% 10%,
+      84% 14%,
+      88% 20%,
+      90% 4%,
+      92% 9%,
+      94% 19%,
+      96% 6%;
+  background-repeat: repeat-y;
+  background-attachment: scroll;
+}
+
+@keyframes scrolling {
+  from {
+    background-position:
+      1% 0,
+      2% 0,
+      4% 0,
+      8% 0,
+      10% 0,
+      12% 0,
+      24% 0,
+      28% 0,
+      32% 0,
+      36% 0,
+      40% 0,
+      50% 0,
+      54% 0,
+      56% 0,
+      60% 0,
+      66% 0,
+      68% 0,
+      72% 0,
+      76% 0,
+      82% 0,
+      84% 0,
+      88% 0,
+      90% 0,
+      92% 0,
+      94% 0,
+      96% 0;
+  }
+  to {
+    background-position:
+      1% 250px,
+      2% 200px,
+      4% 140px,
+      8% 180px,
+      10% 220px,
+      12% 180px,
+      24% 130px,
+      28% 200px,
+      32% 120px,
+      36% 150px,
+      40% 200px,
+      50% 160px,
+      54% 120px,
+      56% 160px,
+      60% 130px,
+      66% 140px,
+      68% 180px,
+      72% 100px,
+      76% 200px,
+      82% 190px,
+      84% 180px,
+      88% 140px,
+      90% 130px,
+      92% 250px,
+      94% 170px,
+      96% 200px;
+  }
+
+}
+
+/*
+ * Rocket container & body left part
+ *
+ * Rocket = R.
+ *
+ * (1) Viewport - (R. left part + R. right part)
+ *     = 480 - (100 + 42)
+ *     = 169
+ *
+ */
+.profile-card > header {
+  height: 600px;
+  width: 100px;
+  margin-left: 169px; /* 1 */
+  background-color: rgba(255,255,255,1);
+  border-radius: 99% 40% 0% 20%;
+  position: relative;
+}
+
+  /*
+   * Rocket body right part
+   */
+  .profile-card > header::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 42%;
+    top: 0;
+    background: white;
+    position: absolute;
+
+    border-radius:40% 99% 20% 0%;
+    box-shadow: -12px 10px 18px -5px rgba(0,0,0,0.3) inset;
+  }
+
+  /*
+   * Rocket flame
+   */
+  .profile-card > header::after {
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-top: 150px solid  red;
+    content: "";
+    display: inline-block;
+    height: 0px;
+    left: 70%;
+    position: absolute;
+top: 100%;
+    z-index: 1;
+    transform: translate(-50%, 0);
+  }
+
+/*
+ * Avatar
+ */
+.profile-card > header a {
+  position: absolute;
+  top: 90px;
+  left: 32px;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border: 5px solid rgba(255,0,0,1);
+  box-shadow: rgba(0,0,0,.5) 0 0 2px 1px;
+  z-index: 2;
+  border-radius: 50%;
+}
+  .profile-card > header a::before,
+  .profile-social-links a::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset rgba(255, 255, 255, 1) 0 0px 20px 5px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .profile-card > header a:hover::before {
+    box-shadow: inset rgba(255,255,255, 1) 0 0px 10px 3px;
+  }
+  .profile-card > header img {
+    width: 120%;
+    margin-left: -10%;
+  }
+
+
+/*
+ * Social icons
+ *
+ * (1) Rocket left margin + (rocket body left part width + rocket body right part width) / 2 - social icons width / 2
+ *     = 169 + (100 + 42) / 2 - 60 / 2 = 210
+ */
+.profile-social-links {
+  position: absolute;
+  top: 230px;
+  left: 215px; /* 1 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+  .profile-social-links a {
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0,0,0,.8);
+    box-shadow: rgba(0,0,0,.3) 0 0 0px 1px;
+    margin-top: 1em;
+    position: relative;
+    overflow: hidden;
+  }
+  .profile-social-links a::before {
+    box-shadow: inset rgba(0,0,0, .3) 0 0px 10px 3px;
+  }
+  /* LED first icon window lightning */
+  .profile-social-links li:nth-child(1) a {
+    /* border-color: rgba(0, 128, 0, .6); */
+  }
+
+  /* LED second icon window lightning */
+  .profile-social-links li:nth-child(2) a {
+    border-color: rgba(64, 153, 255, .8);
+  }
+
+  /* LED third icon window lightning */
+  .profile-social-links li:nth-child(3) a::before {
+    box-shadow: inset rgba(0,0,0, .4) 0 0px 10px 3px;
+  }
+  .profile-social-links a:hover {
+    background-color: rgba(255,255,0,.2);
+  }
+  .profile-social-links a:hover::before {
+    box-shadow: inset rgba(0,0,0, .2) 0 0px 10px 3px !important;
+  }
+  .profile-social-links img {
+    width: 30px;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+  }
+
+/* Spaceship main part */
+.profile-card h1 {
+  position: absolute;
+  top: 290px;
+  left: -38px;
+  white-space: nowrap;
+  font-size: 18px;
+  color: rgba(0, 0, 0, .8);
+  transform: rotate(91deg) skewX(-30deg);
+}
+
+.profile-card h2 {
+  position: absolute;
+  top: 290px;
+  left: 55px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: rgba(0, 0, 0, .8);
+  transform: rotate(-91deg) skewX(30deg);
+}
+
+.profile-bio {
+  background-color: white;
+  width: 290px;
+  padding: 1em;
+  margin: 0 auto;
+  margin-top: -12em;
+  box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.3);
+  color: #999;
+  line-height: 1.5em;
+}
+  .profile-bio::before {
+    position: absolute;
+    content: '';
+    bottom: -25%;
+    left: -25px;
+    width: 60px;
+    height: 200%;
+    border-radius: 50%;
+    background-color: white;
+    z-index: -1;
+    box-shadow: 12px 10px 25px -5px rgba(0,0,0,0.3) inset;
+  }
+  .profile-bio::after {
+    position: absolute;
+    content: '';
+    bottom: -25%;
+    right: -25px;
+    width: 60px;
+    height: 200%;
+    border-radius: 50%;
+    background-color: white;
+    z-index: -1;
+    box-shadow: -12px 10px 18px -5px rgba(0,0,0,0.3) inset;
+  }
+  .profile-bio p {
+    margin: 0;
+  }
+
+/*
+ * Levitating animation
+ */
+@keyframes levitate1{
+  0% {
+    transform: rotate(0deg)
+      translate(-3px)
+      rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg)
+      translate(-3px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes levitate2{
+  0% {
+    transform: rotate(0)
+      translate(3px)
+      rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg)
+      translate(3px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes fly{
+  0% {
+    transform: translate(-1px, -1px);
+  }
+  25% {
+    transform: translate(1px, 1px);
+  }
+  50% {
+    transform: translate(-1px, 1px);
+  }
+  75% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes flame {
+  100% {
+    border-top-width: 160px;
+    border-left-width: 50px;
+  }
+}
+
