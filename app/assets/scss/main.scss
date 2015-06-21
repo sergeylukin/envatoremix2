@@ -3,13 +3,14 @@
 }
 
 body {
-  background-color: rgba(0,0,0,.9);
-  margin: 2em;
+  background-color: #e7e7e9;
+  margin: 17em 2em 2em;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 
 /* Normal state - FLY! */
-.profile-card::before {
+.profile-card::after {
   animation: scrolling .5s linear infinite;
 }
 .profile-card header,
@@ -25,56 +26,37 @@ body {
   animation: none;
 }
 
-/* Plot hovered - Levitate! */
-.profile-card:hover::before {
-  animation: none;
-}
-/* Levitate rocket */
-.profile-card:hover header,
-/* Levitate social icons windows */
-.profile-card:hover .profile-social-links,
-/* Levitate spaceship base part */
-.profile-card:hover .profile-bio {
-  animation: levitate1 3s linear infinite;
-}
-.profile-card:hover header::after {
-  display: none;
-}
-
-.profile-card:hover header img {
-  animation: levitate2 8s infinite linear;
-}
-/* Levitate first icon */
-.profile-card:hover .profile-social-links li:nth-child(1) svg {
-  animation: levitate1 9s infinite linear;
-}
-/* Levitate second icon */
-.profile-card:hover .profile-social-links li:nth-child(2) img {
-  animation: levitate2 10s infinite linear;
-}
-/* Levitate third icon */
-.profile-card:hover .profile-social-links li:nth-child(3) img {
-  animation: levitate1 11s infinite linear;
-}
-
-
 .profile-card {
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   width: 480px;
   margin: 0 auto;
   padding: 50px 0 300px 0;
   border: 1px solid rgba(255,255,255,.2);
   background-color: black;
+  z-index: 0;
+}
+
+.profile-card::before {
+  position: absolute;
+  top: -217px; left: -294px;
+  width: 1070px;
+  height: 1900px;
+  content: '';
+
+  background-image: url("../images/arcade-machine.png");
+  background-repeat: no-repeat;
+  z-index: -2;
 }
 
 /* Universe stars */
-.profile-card::before {
+.profile-card::after {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
   content: '';
+  z-index: -1;
 
   background-image:
     linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 2px),
